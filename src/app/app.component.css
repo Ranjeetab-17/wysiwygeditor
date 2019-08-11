@@ -1,0 +1,138 @@
+/*
+   * Styles to make the demo's cdk-table match the material design spec
+   * https://material.io/guidelines/components/data-tables.html
+   */
+
+.example-container {
+    display: flex;
+    flex-direction: column;
+    max-height: 500px;
+    min-width: 300px;
+}
+
+.mat-table {
+    overflow: auto;
+    max-height: 500px;
+}
+
+.example-table {
+    flex: 1 1 auto;
+    overflow: auto;
+    max-height: 500px;
+}
+
+.example-header-row,
+.example-row {
+    display: flex;
+    border-bottom: 1px solid #ccc;
+    align-items: center;
+    height: 32px;
+    padding: 0 8px;
+}
+
+.example-cell,
+.example-header-cell {
+    flex: 1;
+}
+
+.example-header-cell {
+    font-size: 12px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.example-cell {
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.example-full-width {
+    width: 100%;
+}
+
+.example-icon {
+    padding: 0 14px;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.app-toolbar {
+    position: sticky;
+    position: -webkit-sticky;
+    /* For macOS/iOS Safari */
+    top: 0;
+    /* Sets the sticky toolbar to be on top */
+    z-index: 1000;
+    /* Ensure that your app's content doesn't overlap the toolbar */
+}
+
+button.mat-menu-item {
+    line-height: 24px !important;
+}
+
+a.mat-menu-item>mat-icon {
+    margin-bottom: 14px;
+}
+
+.mat-icon svg {
+    height: 24px;
+    width: 24px;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+
+/*Badge*/
+
+.badge1 {
+    position: relative;
+}
+
+.badge1[data-badge]:after {
+    content: attr(data-badge);
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: .7em;
+    background: green;
+    color: white;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+    line-height: 18px;
+    border-radius: 50%;
+    box-shadow: 0 0 1px #333;
+}
+
+router-outlet {
+    margin: 2em auto;
+}
+
+.route-container {
+    position: relative;
+}
+
+.route-container>* {
+    display: block;
+}
+
+img {
+    outline: none !important;
+}
+
+a:active,
+a:focus {
+    -moz-outline-style: none;
+}
