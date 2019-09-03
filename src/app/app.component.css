@@ -3,12 +3,13 @@
    * https://material.io/guidelines/components/data-tables.html
    */
 
-.example-container {
+
+/* .example-container {
     display: flex;
     flex-direction: column;
     max-height: 500px;
     min-width: 300px;
-}
+} */
 
 .mat-table {
     overflow: auto;
@@ -135,4 +136,8 @@ img {
 a:active,
 a:focus {
     -moz-outline-style: none;
+}
+
+.mat-radio-button~.mat-radio-button {
+    margin-left: 16px;
 }

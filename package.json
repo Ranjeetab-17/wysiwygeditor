@@ -23,6 +23,7 @@
         "@angular/platform-browser": "~8.1.2",
         "@angular/platform-browser-dynamic": "~8.1.2",
         "@angular/router": "~8.1.2",
+        "@mdi/angular-material": "^4.2.95",
         "@mdi/svg": "^3.9.97",
         "@tinymce/tinymce-angular": "^3.2.0",
         "angular-split": "^3.0.2",
