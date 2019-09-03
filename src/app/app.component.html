@@ -1,13 +1,21 @@
+<!-- <editor apiKey="test" [init]="{plugins: 'link'}">
+</editor>
+
+<button mat-raised-button color="warn">Click</button>
+
+<router-outlet></router-outlet> -->
+
 <!-- [appCustomtheme]="'dark-theme'" -->
-<!-- [ngClass]="{'dark-theme': isDarkTheme | async}" -->
-<div class="dark-theme">
+
+
+
+<div [class]="mytheme" style="zoom:90%;position:absolute;top:0;left:0;right:0;bottom:0;">
     <mat-sidenav-container fullscreen>
         <mat-sidenav #sidenav [mode]="isLargeScreen() ? 'side' : 'over'" [opened]="isLargeScreen()" position="end">
-            <mat-toolbar color="primary" style="height:250px;width:220px;" align="center">
+            <mat-toolbar color="primary" style="height:250px;width:220px" align="center">
                 <div fxLayout="row wrap">
                     <div fxFlex="100%">
-                        <img mat-card-image src="assets/images/dp.jpg" alt="Photo of a Shiba Inu" style="height:168px;width:168px;border-radius: 100px;">
-                        <!-- <img mat-card-avatar #avtar [src]="'https://miro.medium.com/max/2000/1*_K5RJJUxdsJPPjksME4i5Q.jpeg'" style="height:168px;width:168px;"> -->
+                        <img mat-card-avatar #avtar [src]="'https://miro.medium.com/max/2000/1*_K5RJJUxdsJPPjksME4i5Q.jpeg'" style="height:168px;width:168px;">
                     </div>
                     <div fxFlex="100%">
                         <span>
@@ -15,25 +23,17 @@
                         </span>
                     </div>
                 </div>
-
-
             </mat-toolbar>
             <mat-nav-list color="warn">
-                <a mat-list-item [routerLink]='["new"]'>
-                    <mat-icon svgIcon="file-document-box-plus-outline"></mat-icon>&nbsp;
+                <a mat-list-item [routerLink]='["home"]' (click)="sidenav.toggle()">
+                    <mat-icon svgIcon="view-dashboard"></mat-icon>&nbsp;
                     <span>New File</span>
                 </a>
 
-                <a mat-list-item [routerLink]='["selecttemplate"]'>
-                    <mat-icon svgIcon="file-document-edit-outline">
-                    </mat-icon>&nbsp;
-                    <span>Select template</span>
-                </a>
-
-                <a mat-list-item [routerLink]='["editor"]'>
+                <a mat-list-item [routerLink]='["learnings"]' (click)="sidenav.toggle()">
                     <mat-icon>library_books
                     </mat-icon>&nbsp;
-                    <span>Editor</span>
+                    <span>Select template</span>
                 </a>
 
                 <a mat-list-item [routerLink]='["setting"]' (click)="sidenav.toggle()">
@@ -47,7 +47,6 @@
             </mat-nav-list>
 
         </mat-sidenav>
-
         <mat-toolbar color="primary" style="min-height:45px;" class="app-toolbar">
             <div fxLayoutAlign="start center">
                 <span>
@@ -59,19 +58,21 @@
             </div>
 
             <div fxLayoutAlign="start center">
-                <span>Editor</span>
+                <span>WYSIWYG Editor</span>
             </div>
 
             <span class="example-spacer" fxLayoutAlign="right">
-                <button mat-icon-button color="warn">
-                <mat-icon svgIcon="file-pdf-box"></mat-icon>
-                </button>
-
+                <img src="../../assets/svg/logo-bnp.svg" style="height:30px !important;" alt="">
             </span>
+
+
 
             <div class="material-icons mdl-badge mdl-badge--overlap" [attr.data-badge]="1">1</div>
 
             <div fxShow="true" fxHide.lt-md="true">
+
+
+
                 <span class="example-spacer"></span>
 
                 <span class="example-spacer"></span>
@@ -89,7 +90,7 @@
                 </mat-menu>
 
                 &nbsp;
-                <button mat-icon-button (click)="openDialog()">
+                <button mat-icon-button [routerLink]='["setting"]'>
                     <mat-icon svgIcon="settings"></mat-icon>&nbsp;
                 </button>
 
@@ -101,145 +102,43 @@
             </div>
 
             <div fxLayout.xs="row" fxLayoutAlign="end none">
-                <button mat-icon-button fxShow="false" fxShow.lt-md="true" [matMenuTriggerFor]="menu">
+                <button mat-icon-button fxShow="false" fxShow.lt-md="true">
                     <mat-icon matBadge="10" matBadgeColor="warn">notifications</mat-icon>
                 </button>
 
-                <mat-menu #menu="matMenu" [overlapTrigger]="false">
-                    <perfect-scrollbar style="max-width: 100%;height:250px">
-                        <mat-list>
-                            <mat-list-item>
-                                <button mat-icon-button color="primary">
-                                <mat-icon svgIcon="reminder"></mat-icon>
-                            </button>
+                <!-- <div fxLayoutAlign="end center" [matMenuTriggerFor]="menu">
+          <img mat-card-avatar src="assets/photos/IMG_20160619_114740.jpg" alt="">
+        </div> -->
 
-                                <mat-label>
-                                    Ranjeet contributed on valuechain 1
-                                </mat-label>
-                            </mat-list-item>
-                            <mat-divider></mat-divider>
-                            <mat-list-item><button mat-icon-button color="primary">
-                                <mat-icon svgIcon="reminder"></mat-icon>
-                            </button>
-
-                                <mat-label>
-                                    Soumya contributed on valuechain 2
-                                </mat-label>
-                            </mat-list-item>
-                            <mat-divider></mat-divider>
-                            <mat-list-item>
-                                <button mat-icon-button color="primary">
-                                <mat-icon svgIcon="reminder"></mat-icon>
-                            </button>
-
-                                <mat-label>
-                                    Ratnakar contributed on Derivateves
-                                </mat-label>
-                            </mat-list-item>
-                            <mat-divider>
-                            </mat-divider>
-                            <mat-list-item>
-                                <button mat-icon-button color="primary">
-                                <mat-icon svgIcon="reminder"></mat-icon>
-                            </button>
-
-                                <mat-label>
-                                    Nagendra contributed
-                                </mat-label>
-                            </mat-list-item>
-                            <mat-divider></mat-divider>
-                            <mat-list-item>
-                                <button mat-icon-button color="primary">
-                                <mat-icon svgIcon="reminder"></mat-icon>
-                            </button>
-
-                                <mat-label>
-                                    Saurabh contributed
-                                </mat-label>
-                            </mat-list-item>
-                            <mat-divider></mat-divider>
-                            <mat-list-item><button mat-icon-button color="primary">
-                                <mat-icon svgIcon="reminder"></mat-icon>
-                            </button>
-
-                                <mat-label>
-                                    Ankit contributed
-                                </mat-label>
-                            </mat-list-item>
-                            <mat-list-item>
-                                <button mat-icon-button color="primary">
-                                <mat-icon svgIcon="reminder"></mat-icon>
-                            </button>
-
-                                <mat-label>
-                                    Ranjeet contributed on valuechain 1
-                                </mat-label>
-                            </mat-list-item>
-                            <mat-divider></mat-divider>
-                            <mat-list-item><button mat-icon-button color="primary">
-                                <mat-icon svgIcon="reminder"></mat-icon>
-                            </button>
-
-                                <mat-label>
-                                    Soumya contributed on valuechain 2
-                                </mat-label>
-                            </mat-list-item>
-                            <mat-divider></mat-divider>
-                            <mat-list-item>
-                                <button mat-icon-button color="primary">
-                                <mat-icon svgIcon="reminder"></mat-icon>
-                            </button>
-
-                                <mat-label>
-                                    Ratnakar contributed on Derivateves
-                                </mat-label>
-                            </mat-list-item>
-                            <mat-divider>
-                            </mat-divider>
-                            <mat-list-item>
-                                <button mat-icon-button color="primary">
-                                <mat-icon svgIcon="reminder"></mat-icon>
-                            </button>
-
-                                <mat-label>
-                                    Nagendra contributed
-                                </mat-label>
-                            </mat-list-item>
-                            <mat-divider></mat-divider>
-                            <mat-list-item>
-                                <button mat-icon-button color="primary">
-                                <mat-icon svgIcon="reminder"></mat-icon>
-                            </button>
-
-                                <mat-label>
-                                    Saurabh contributed
-                                </mat-label>
-                            </mat-list-item>
-                            <mat-divider></mat-divider>
-                            <mat-list-item><button mat-icon-button color="primary">
-                                <mat-icon svgIcon="reminder"></mat-icon>
-                            </button>
-
-                                <mat-label>
-                                    Ankit contributed
-                                </mat-label>
-                            </mat-list-item>
-                        </mat-list>
-                    </perfect-scrollbar>
-                </mat-menu>
             </div>
+            <mat-menu #menu="matMenu">
+                <div fxShow="false" fxShow.lt-md="true">
+                    <button mat-menu-item *ngIf="user">
+                        <mat-icon>person</mat-icon>
+                        <span class="example-spacer">Hi &nbsp; {{user}}</span>
+                    </button>
+                    <button mat-menu-item>
+                        <mat-icon>notifications</mat-icon>
+                        Notifications
+                    </button>
+                </div>
+                <button fxShow="false" fxShow.lt-md="true" mat-menu-item [routerLink]='["../login"]'>
+                    <mat-icon svgIcon="power"></mat-icon>
+                    &nbsp;
+                    <span>Logout</span>
+                </button>
+            </mat-menu>
+
 
         </mat-toolbar>
         <mat-progress-bar *ngIf="showprogressbar" mode="indeterminate" width="100%" color="warn"></mat-progress-bar>
 
-
-
-        <perfect-scrollbar style="max-width: 100%;height:620px">
-            <router-outlet style="background-color: antiquewhite"></router-outlet>
-        </perfect-scrollbar>
-
-
-
-
+        <div class="inner-sidenav-content">
+            <div fxFlexLayout="row" fxLayoutAlign="space-around center">
+                <div fxFlex="90%">
+                    <router-outlet style="background-color: antiquewhite"></router-outlet>
+                </div>
+            </div>
+        </div>
     </mat-sidenav-container>
 </div>

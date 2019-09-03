@@ -45,9 +45,6 @@ import {
   MatToolbarModule,
   MatTooltipModule,
   MatStepperModule,
-  MAT_RADIO_DEFAULT_OPTIONS,
-  MAT_SLIDE_TOGGLE_DEFAULT_OPTIONS,
-  MatTreeModule,
 } from '@angular/material';
 
 import { CdkTableModule } from '@angular/cdk/table';
@@ -59,12 +56,7 @@ import { EditorComponent } from './Templates/editor/editor.component';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
-import { NgxDocViewerModule } from 'ngx-doc-viewer';
-import { SettingsComponent } from './modals/settings/settings.component';
-import { SelecttemplateComponent } from './modals/selecttemplate/selecttemplate.component';
-import { SelectnewtemplateComponent } from './components/selectnewtemplate/selectnewtemplate.component';
-//import { DragDropModule } from '@angular/cdk/drag-drop';
-
+import { NgxDocViewerModule } from 'ngx-doc-viewer'
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -72,18 +64,13 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'editor', pathMatch: 'full' },
-  { path: 'new', component: SelectnewtemplateComponent },
-  { path: 'selecttemplate', component: SelectnewtemplateComponent },
   { path: 'editor', component: EditorComponent }
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
-    EditorComponent,
-    SettingsComponent,
-    SelecttemplateComponent,
-    SelectnewtemplateComponent
+    EditorComponent
   ],
   imports: [
     BrowserModule,
@@ -133,25 +120,14 @@ const appRoutes: Routes = [
     CdkTableModule,
     EditorModule,
     FlexLayoutModule,
-    NgxDocViewerModule,
-    DragDropModule,
-    MatTreeModule
+    NgxDocViewerModule
   ],
   providers: [
     {
       provide: PERFECT_SCROLLBAR_CONFIG,
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
-    },
-    {
-      provide: MAT_RADIO_DEFAULT_OPTIONS,
-      useValue: { color: 'primary' },
-    },
-    {
-      provide: MAT_SLIDE_TOGGLE_DEFAULT_OPTIONS,
-      useValue: { color: 'primary' },
     }
   ],
-  entryComponents: [SettingsComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {

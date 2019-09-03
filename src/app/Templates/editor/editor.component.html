@@ -1,53 +1,42 @@
-<div style="width: 100%; height: 900px;">
+<div style="width: 100%; height: 700px;">
     <as-split direction="horizontal">
         <as-split-area size="50">
-            <div>
-                <div class="done" fxLayout="row" fxLayoutGap="15px" style="margin-top: 10px;margin-bottom: 10px;">
+            <!-- <embed src="assets/Docs/pizza order.pdf"> -->
 
-                    <a mat-mini-fab color="default" matTooltip="Preview" matTooltipPosition="before">
-                        <mat-icon svgIcon="file-find"></mat-icon>
-                    </a>
+            <div class="done" fxLayout="row" fxLayoutGap="15px" style="margin-top: 10px;margin-bottom: 10px;">
 
-                    <a mat-mini-fab color="warn" matTooltip="Export to pdf" matTooltipPosition="before">
-                        <mat-icon svgIcon="file-pdf-box"></mat-icon>
-                    </a>
+                <a mat-mini-fab color="default" matTooltip="Preview" matTooltipPosition="before">
+                    <mat-icon svgIcon="file-find"></mat-icon>
+                </a>
 
-                    <a mat-mini-fab color="primary" matTooltip="Export to excel" matTooltipPosition="before">
-                        <mat-icon svgIcon="file-word"></mat-icon>
-                    </a>
+                <a mat-mini-fab color="warn" matTooltip="Export to pdf" matTooltipPosition="before">
+                    <mat-icon svgIcon="file-pdf-box"></mat-icon>
+                </a>
 
-                    <a mat-mini-fab color="primary" matTooltip="Export to excel" matTooltipPosition="before">
-                        <mat-icon svgIcon="file-excel"></mat-icon>
-                    </a>
+                <a mat-mini-fab color="primary" matTooltip="Export to excel" matTooltipPosition="before">
+                    <mat-icon svgIcon="file-word"></mat-icon>
+                </a>
 
-                    <a mat-mini-fab matTooltip="Export to excel" matTooltipPosition="before" (click)="print()">
-                        <mat-icon svgIcon="printer-settings"></mat-icon>
-                    </a>
-                </div>
+                <a mat-mini-fab color="primary" matTooltip="Export to excel" matTooltipPosition="before">
+                    <mat-icon svgIcon="file-excel"></mat-icon>
+                </a>
 
-                <editor [(ngModel)]="editorValue" (onSelectionChange)="handleEvent($event)" apiKey="test" [init]="configuration" id="print-section">
-                </editor>
+                <a mat-mini-fab matTooltip="Export to excel" matTooltipPosition="before" (click)="print()">
+                    <mat-icon svgIcon="printer-settings"></mat-icon>
+                </a>
             </div>
 
+            <editor [(ngModel)]="editorValue" apiKey="test" [init]="configuration" id="print-section">
+            </editor>
+
+            <!-- <pre>{{editorValue}}</pre> -->
         </as-split-area>
 
         <as-split-area size="50">
-
-            <as-split direction="vertical">
-                <as-split-area size="50">
-                    <perfect-scrollbar style="max-width: 100%;">
-                        <code>
-                                        <pre>
-                    {{editorValue}}
-                                        </pre>
-                                    </code>
-                    </perfect-scrollbar>
-                </as-split-area>
-                <as-split-area size="50">
-                    Sections
-                </as-split-area>
-            </as-split>
-
+            <perfect-scrollbar style="max-width: 100%;" [config]="config">
+                <!-- <ngx-doc-viewer [url]="'assets/Docs/pdf-test.pdf'" viewer="google" style="width:100%;height:50vh;"></ngx-doc-viewer> -->
+                <pdf-viewer src="assets/Docs/pdf-test.pdf" style="display: block;" [show-all]="true" [autoresize]="true" [fit-to-page]="true" [original-size]="true" [render-text]="true" [stick-to-page]="true" width="100%" hieght="100%"></pdf-viewer>
+            </perfect-scrollbar>
         </as-split-area>
 
     </as-split>
